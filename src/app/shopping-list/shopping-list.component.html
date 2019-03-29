@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-xs-10">
+    <app-shopping-edit
+    (musicAdded)="onMusicAdded($event)"></app-shopping-edit>
+    <hr>
+    <ul class="list-group">
+      <a
+        class="list-group-item"
+        style="cursor: pointer"
+        *ngFor="let song of songs"
+      >
+        {{ song.name }} ({{ song.amount }}) {{ song.album }}
+      </a>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-success">New Album</button>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-xs-12" >
+      <app-album-item
+      *ngFor="let albumEl of albums"
+      [albums]="albumEl"
+      ></app-album-item>
+  </div>
+</div>
+
