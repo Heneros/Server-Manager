@@ -8,19 +8,18 @@ import { Music } from '../../shared/music.model';
   styleUrls: ['./shopping-edit.component.css']
 })
 export class ShoppingEditComponent implements OnInit {
-@ViewChild('nameInput') nameInputRef: ElementRef;
-@ViewChild('amountInput') amountInputRef: ElementRef;
+@ViewChild('bandInput') bandInputRef: ElementRef;
+@ViewChild('songInput') songInputRef: ElementRef;
 @Output() musicAdded = new EventEmitter<Music>();
   constructor() { }
 
   ngOnInit() {
   }
   onAddItem(){
-    const muName = this.nameInputRef.nativeElement.value;
-    const muAmount = this.amountInputRef.nativeElement.value;
-    const newMusic = new Music(muName, muAmount);
+    const muBand = this.bandInputRef.nativeElement.value;
+    const muSong = this.songInputRef.nativeElement.value;
+    const newMusic = new Music(muBand, muSong);
     this.musicAdded.emit(newMusic);
-
 
   }
 

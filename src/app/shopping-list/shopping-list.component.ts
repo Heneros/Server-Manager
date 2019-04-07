@@ -9,8 +9,8 @@ import { Music } from '../shared/music.model';
 })
 export class ShoppingListComponent implements OnInit {
   songs: Music[] = [
-    new Music('Slipknot', 5),
-    new Music('Metallica', 10),
+    new Music('Slipknot', 'Dead Memories'),
+    new Music('Metallica', 'Master of Puppets'),
   ];
 
   constructor() { }

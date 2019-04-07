@@ -1,3 +1,3 @@
 export class Music {
-  constructor(public name: string, public amount: number) {}
+  constructor(public band: string, public song: string) {}
 }
