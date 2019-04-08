@@ -1,6 +1,8 @@
-import { Component, OnInit, ViewChild, ElementRef, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 import { Music } from '../../shared/music.model';
+import { ShoppingListService } from '../shopping-list.service';
+
 
 @Component({
   selector: 'app-shopping-edit',
@@ -10,8 +12,7 @@ import { Music } from '../../shared/music.model';
 export class ShoppingEditComponent implements OnInit {
 @ViewChild('bandInput') bandInputRef: ElementRef;
 @ViewChild('songInput') songInputRef: ElementRef;
-@Output() musicAdded = new EventEmitter<Music>();
-  constructor() { }
+  constructor(private slService: ShoppingListService ) { }
 
   ngOnInit() {
   }
@@ -19,7 +20,7 @@ export class ShoppingEditComponent implements OnInit {
     const muBand = this.bandInputRef.nativeElement.value;
     const muSong = this.songInputRef.nativeElement.value;
     const newMusic = new Music(muBand, muSong);
-    this.musicAdded.emit(newMusic);
+    this.slService.addMusic(newMusic);
 
   }
 

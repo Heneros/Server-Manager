@@ -22,7 +22,7 @@
         Manage Albums <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
-        <li><a href="#">To Shopping List</a></li>
+        <li><a (click)="onAddToShoppingList()" style="cursor: pointer;">To Shopping List</a></li>
         <li><a href="#">Edit Album</a></li>
         <li><a href="#">Delete Album</a></li>
       </ul>
@@ -36,6 +36,11 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-    Music
+   <ul class="list-group">
+     <li class="list-group-item"
+     *ngFor="let song of album.songs">
+       {{song.band}} {{song.song}}
+     </li>
+   </ul>
   </div>
 </div>
