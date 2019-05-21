@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
-import { Music } from '../../shared/music.model';
 import { ShoppingListService } from '../shopping-list.service';
+import { AddMusic } from '../../shared/add-music.model';
 
 
 @Component({
@@ -14,12 +14,12 @@ export class ShoppingEditComponent implements OnInit {
 @ViewChild('songInput') songInputRef: ElementRef;
   constructor(private slService: ShoppingListService ) { }
 
-  ngOnInit() {
+  ngOnInit() { 
   }
   onAddItem(){
     const muBand = this.bandInputRef.nativeElement.value;
     const muSong = this.songInputRef.nativeElement.value;
-    const newMusic = new Music(muBand, muSong);
+    const newMusic = new AddMusic(muBand, muSong);
     this.slService.addMusic(newMusic);
 
   }

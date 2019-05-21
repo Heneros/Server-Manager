@@ -10,20 +10,20 @@ export class AlbumService{
 
   private albums : Albums[] = [
     new Albums(
-      'A Test album', 
-    'This is simply a test', 
-    'https://sova.ponominalu.ru/wp-content/uploads/2018/11/slipknot.jpg', 
+    'Slipknot', 
+    'Iowa', 
+    'https://avatars.yandex.net/get-music-content/63210/c2fa15e9.a.40252-4/m1000x1000', 
     [
-      new Music("Миллионы Алых Роз.", "Наступает ночь"),
-      new Music("Миллионы Алых Роз.", "Наступает ночь")
+      new Music("The Heretic Anthem."),
+      new Music("People = Shit.")
     ]),
     new Albums(
-      'Another album', 
-    'This is simply a test', 
-    'https://sova.ponominalu.ru/wp-content/uploads/2018/11/slipknot.jpg',
+    'Wham!',  
+    'Make It Big', 
+    'https://images-na.ssl-images-amazon.com/images/I/714sQ6UH9vL._SL1500_.jpg',
     [
-      new Music("Миллионы Алых Роз.", "Наступает ночь"),
-      new Music("Миллионы Алых Роз.", "Наступает ночь")
+      new Music("Wake Me Up Before You Go-Go"),
+      new Music("Everything She Wants ")
     ]),
   ];
 
@@ -34,6 +34,6 @@ constructor(private slService: ShoppingListService){}
   }
 
 addSongsToShoppingList(songs: Music[]){
-  this.slService.addMusics(songs);
+  this.slService.addSongs(songs);
 }
 }

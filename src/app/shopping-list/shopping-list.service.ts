@@ -6,8 +6,8 @@ import { EventEmitter } from '@angular/core';
 export class ShoppingListService {
   musicChanged = new EventEmitter<Music[]>();
   private songs: Music[] = [
-      new Music('Mac Quayle', 'youaremy4nswer.msv'),
-      new Music('Mac Quayle', 'Memories'),
+      new Music('Mac Quayle - youaremy4nswer.msv'),
+      new Music('Mac Quayle - Memories'),
   ];
 
   getMusic(){
@@ -19,7 +19,7 @@ export class ShoppingListService {
   this.musicChanged.emit(this.songs.slice());
   }
   
-  addMusics(songs: Music[]){
+  addSongs(songs: Music[]){
     this.songs.push(...songs);
     this.musicChanged.emit(this.songs.slice());
   }
