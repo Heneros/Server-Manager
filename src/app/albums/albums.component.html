@@ -1,14 +1,8 @@
 <div class="row">
   <div class="col-md-5">
-    <app-albums-list ></app-albums-list>
+    <app-album-list></app-album-list>
   </div>
   <div class="col-md-7">
-    <app-album-detail
-    *ngIf="selectedAlbum; else infoText"
-    [album]="selectedAlbum">
-  </app-album-detail>
-  <ng-template #infoText>
-  <p>Select album!</p>
-  </ng-template>
+    <router-outlet></router-outlet>
   </div>
 </div>

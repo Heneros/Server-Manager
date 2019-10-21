@@ -1,26 +1,27 @@
-import { Music } from '../shared/music.model';
+import { Song } from '../shared/song.model';
 import { EventEmitter } from '@angular/core';
 
-
-
 export class ShoppingListService {
-  musicChanged = new EventEmitter<Music[]>();
-  private songs: Music[] = [
-      new Music('Mac Quayle - youaremy4nswer.msv'),
-      new Music('Mac Quayle - Memories'),
+  songsChanged = new EventEmitter<Song[]>();
+  private songs: Song[] = [
+    new Song('Apples', 5),
+    new Song('Tomatoes', 10),
   ];
 
-  getMusic(){
-      return this.songs.slice();
+  getSongs() {
+    return this.songs.slice();
   }
 
-  addMusic(music: Music){
-  this.songs.push(music);
-  this.musicChanged.emit(this.songs.slice());
+  addSong(song: Song) {
+    this.songs.push(song);
+    this.songsChanged.emit(this.songs.slice());
   }
-  
-  addSongs(songs: Music[]){
+
+  addSongs(songs: Song[]) {
+    // for (let ingredient of ingredients) {
+    //   this.addIngredient(ingredient);
+    // }
     this.songs.push(...songs);
-    this.musicChanged.emit(this.songs.slice());
+    this.songsChanged.emit(this.songs.slice());
   }
 }

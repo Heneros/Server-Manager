@@ -1,46 +1,48 @@
 <div class="row">
   <div class="col-xs-12">
-    <img 
-    [src]="album.imagePath" 
-    alt="{{album.name}}" 
-    class="img-responsive"
-    style="max-height:300px">
+    <img
+      [src]="album.imagePath"
+      alt="{{ album.name }}"
+      class="img-responsive"
+      style="max-height: 300px;">
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <h1> {{album.name}}</h1>
+    <h1>{{ album.name }}</h1>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <div class="btn-group"
-    appDropdown>
+    <div
+      class="btn-group"
+      appDropdown>
       <button
         type="button"
         class="btn btn-primary dropdown-toggle">
-        Manage Albums <span class="caret"></span>
+        Manage album <span class="caret"></span>
       </button>
       <ul class="dropdown-menu">
         <li><a (click)="onAddToShoppingList()" style="cursor: pointer;">To Shopping List</a></li>
-        <li><a href="#">Edit Album</a></li>
-        <li><a href="#">Delete Album</a></li>
+        <li><a style="cursor: pointer;" (click)="onEditalbum()">Edit album</a></li>
+        <li><a style="cursor: pointer;">Delete album</a></li>
       </ul>
     </div>
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12">
-    <h3>{{album.description}}</h3>   
+    {{ album.description }}
   </div>
 </div>
 <div class="row">
   <div class="col-xs-12">
-   <ul class="list-group">
-     <li class="list-group-item"
-     *ngFor="let song of album.songs">
-       {{song.band}} {{song.song}}
-     </li>
-   </ul>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let ingredient of album.ingredients">
+        {{ ingredient.name }} - {{ ingredient.amount }}
+      </li>
+    </ul>
   </div>
 </div>

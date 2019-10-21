@@ -1,25 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Albums } from './albums.model';
-import { AlbumService } from './album.service';
+import { Album } from './albums.model';
+import { AlbumService } from './albums.service';
+
 @Component({
   selector: 'app-albums',
   templateUrl: './albums.component.html',
   styleUrls: ['./albums.component.css'],
   providers: [AlbumService]
 })
-export class AlbumsComponent implements OnInit {
-selectedAlbum: Albums;
+export class albumsComponent implements OnInit {
+  selectedalbum: Album;
 
   constructor(private albumService: AlbumService) { }
 
   ngOnInit() {
     this.albumService.albumSelected
-    .subscribe(
-      (albums: Albums) => {
-        this.selectedAlbum = albums;
-      }
-    );
+      .subscribe(
+        (album: Album) => {
+          this.selectedalbum = album;
+        }
+      );
   }
 
 }

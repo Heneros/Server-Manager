@@ -1,8 +1,12 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  ViewChild
+} from '@angular/core';
 
+import { Song } from '../../shared/song.model';
 import { ShoppingListService } from '../shopping-list.service';
-import { AddMusic } from '../../shared/add-music.model';
-
 
 @Component({
   selector: 'app-shopping-edit',
@@ -10,18 +14,19 @@ import { AddMusic } from '../../shared/add-music.model';
   styleUrls: ['./shopping-edit.component.css']
 })
 export class ShoppingEditComponent implements OnInit {
-@ViewChild('bandInput') bandInputRef: ElementRef;
-@ViewChild('songInput') songInputRef: ElementRef;
-  constructor(private slService: ShoppingListService ) { }
+  @ViewChild('nameInput', { static: false }) nameInputRef: ElementRef;
+  @ViewChild('amountInput', { static: false }) amountInputRef: ElementRef;
 
-  ngOnInit() { 
+  constructor(private slService: ShoppingListService) { }
+
+  ngOnInit() {
   }
-  onAddItem(){
-    const muBand = this.bandInputRef.nativeElement.value;
-    const muSong = this.songInputRef.nativeElement.value;
-    const newMusic = new AddMusic(muBand, muSong);
-    this.slService.addMusic(newMusic);
 
+  onAddItem() {
+    const ingName = this.nameInputRef.nativeElement.value;
+    const ingAmount = this.amountInputRef.nativeElement.value;
+    const newSong = new Song(ingName, ingAmount);
+    this.slService.addSong(newSong);
   }
 
 }

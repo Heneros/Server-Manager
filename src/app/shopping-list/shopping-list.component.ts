@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Music } from '../shared/music.model';
+import { Song } from '../shared/song.model';
 import { ShoppingListService } from './shopping-list.service';
 
 @Component({
@@ -9,18 +9,17 @@ import { ShoppingListService } from './shopping-list.service';
   styleUrls: ['./shopping-list.component.css']
 })
 export class ShoppingListComponent implements OnInit {
-  songs: Music[];
+  songs: Song[];
 
   constructor(private slService: ShoppingListService) { }
 
   ngOnInit() {
-    this.songs = this.slService.getMusic();
-    this.slService.musicChanged 
-    .subscribe(
-      (songs: Music[]) =>{
-        this.songs = songs;
-      }
-    );
+    this.songs = this.slService.getSongs();
+    this.slService.songsChanged
+      .subscribe(
+        (ingredients: Song[]) => {
+          this.songs = ingredients;
+        }
+      );
   }
-
 }

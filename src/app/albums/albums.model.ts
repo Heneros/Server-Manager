@@ -1,13 +1,12 @@
-import { Music } from '../shared/music.model';
+import { Song } from '../shared/song.model';
 
-
-export class Albums {
+export class Album {
   public name: string;
   public description: string;
   public imagePath: string;
-  public songs: Music[];
+  public songs: Song[];
 
-  constructor(name: string, desc: string, imagePath: string, songs: Music[]) {
+  constructor(name: string, desc: string, imagePath: string, songs: Song[]) {
     this.name = name;
     this.description = desc;
     this.imagePath = imagePath;
