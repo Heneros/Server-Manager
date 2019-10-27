@@ -32,7 +32,7 @@
 </div>
 <div class="row">
   <div class="col-xs-12">
-    {{ album.description }}
+    <b> Album name: </b> {{  album.description }}
   </div>
 </div>
 <div class="row">
@@ -40,8 +40,8 @@
     <ul class="list-group">
       <li
         class="list-group-item"
-        *ngFor="let ingredient of album.ingredients">
-        {{ ingredient.name }} - {{ ingredient.amount }}
+        *ngFor="let album of album.songs">
+      Song:  {{ album.name }} 
       </li>
     </ul>
   </div>
