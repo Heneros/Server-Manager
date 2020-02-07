@@ -1,8 +1,11 @@
+import { Subject } from 'rxjs';
+
 import { Song } from '../shared/song.model';
-import { EventEmitter } from '@angular/core';
 
 export class ShoppingListService {
-  songsChanged = new EventEmitter<Song[]>();
+  songsChanged = new Subject<Song[]>();
+  startedEditing = new Subject<number>();
+
   private songs: Song[] = [
       new Song('Mac Quayle - youaremy4nswer.msv'),
       new Song('Mac Quayle - Memories'),
@@ -12,14 +15,26 @@ export class ShoppingListService {
   getSongs() {
     return this.songs.slice();
   }
+  getSong(index: number) {
+    return this.songs[index];
+  }
 
   addSong(song: Song) {
     this.songs.push(song);
-    this.songsChanged.emit(this.songs.slice());
+    this.songsChanged.next(this.songs.slice());
   }
 
   addSongs(songs: Song[]) {
     this.songs.push(...songs);
-    this.songsChanged.emit(this.songs.slice());
+    this.songsChanged.next(this.songs.slice());
+  }
+
+  updateSong(index: number, newSong: Song){
+    this.songs[index] = newSong;
+    this.songsChanged.next(this.songs.slice());
+  }
+  deleteSong(index: number){
+    this.songs.splice(index, 1);
+    this.songsChanged.next(this.songs.slice());
   }
 }

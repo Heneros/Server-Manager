@@ -6,7 +6,8 @@
       <a
         class="list-group-item"
         style="cursor: pointer"
-        *ngFor="let song of songs"
+        *ngFor="let song of songs; let i = index"
+        (click)="onEditSong(i)"
       >
         {{ song.name }} 
       </a>
